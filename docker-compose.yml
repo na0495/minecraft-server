@@ -8,7 +8,7 @@ services:
       TYPE: PAPER
       VIEW_DISTANCE: 20
       MEMORY: 10G
-      VERSION: 1.21.5
+      VERSION: 1.21.8
       PAPER_CHANNEL: experimental
       SPIGET_RESOURCES: 31585,64139
       DIFFICULTY: normal
