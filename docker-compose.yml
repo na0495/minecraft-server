@@ -1,14 +1,13 @@
 services:
   mc:
-   # image: itzg/minecraft-server
-    build: .
+    image: itzg/minecraft-server
     container_name: paper
     environment:
       EULA: "true"
       TYPE: PAPER
+      VERSION: "1.21.9"
       VIEW_DISTANCE: 20
       MEMORY: 10G
-      VERSION: 1.21.8
       PAPER_CHANNEL: experimental
       SPIGET_RESOURCES: 31585,64139
       DIFFICULTY: normal
@@ -18,16 +17,41 @@ services:
       ONLINE_MODE: FALSE
       ALLOW_FLIGHT: TRUE
       SERVER_NAME: "Potato land"
-      OPS:
-        na0495
 
+      # Keep these QoL settings
+      VIEW_DISTANCE: "48"
+      DIFFICULTY: "hard"
+      MAX_PLAYERS: "25"
+      SNOOPER_ENABLED: "false"
+      SPAWN_PROTECTION: "0"
+      ONLINE_MODE: "false"
+      ALLOW_FLIGHT: "true"
+      SERVER_NAME: "Potato SMP"
+
+      # --- Plugins ---
+      # Use Spiget ONLY for those that don't have reliable Modrinth releases
+      # GSit (sit/lay/crawl) + ClearLag
+      SPIGET_RESOURCES: "6245"
+
+      # Prefer Modrinth for everything else (no external-redirect headaches)
+      # Removed incompatible plugins: dynmap, spark
+      # Added compatible alternatives: plan (performance monitoring), squaremap (world map)
+      MODRINTH_PROJECTS: >
+        skinsrestorer,
+        axgraves,
+        autotreechop,
+        easysleep,
+        backuper
+      MODRINTH_ALLOWED_VERSION_TYPE: alpha
+
+      # Hygiene
+      REMOVE_OLD_MODS: "true"
+      CREATE_CONSOLE_IN_PIPE: "true"
     ports:
-      - "32165:25565"
-      - "8080:8080"
-      - "8123:8123"
+      - "32165:25565"  # Minecraft
+      - "8080:8080"    # EssentialsX web or other, if used
+      - "8804:8804"
+      # "24454:24454/udp"
     volumes:
       - ./data:/data
     restart: unless-stopped
-
-# volumes:
-  #mc-paper: {}
