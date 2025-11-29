@@ -6,7 +6,17 @@ services:
       EULA: "true"
       TYPE: PAPER
       VERSION: "1.21.9"
-      MEMORY: "8G"
+      VIEW_DISTANCE: 20
+      MEMORY: 10G
+      PAPER_CHANNEL: experimental
+      SPIGET_RESOURCES: 31585,64139
+      DIFFICULTY: normal
+      MAX_PLAYERS: 10
+      SNOOPER_ENABLED: FALSE
+      SPAWN_PROTECTION: 0
+      ONLINE_MODE: FALSE
+      ALLOW_FLIGHT: TRUE
+      SERVER_NAME: "Potato land"
 
       # Keep these QoL settings
       VIEW_DISTANCE: "48"
@@ -17,7 +27,6 @@ services:
       ONLINE_MODE: "false"
       ALLOW_FLIGHT: "true"
       SERVER_NAME: "Potato SMP"
-      # OPS: "Na0495"  # Removed due to PlayerDB resolution issues
 
       # --- Plugins ---
       # Use Spiget ONLY for those that don't have reliable Modrinth releases
